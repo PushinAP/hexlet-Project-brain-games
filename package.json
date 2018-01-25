@@ -1,6 +1,6 @@
 {
   "name": "brain-games1414",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -16,7 +16,7 @@
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build",
-    "eslint":"eslint"
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
     "eslint-plugin-import": "*"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.5",
     "readline-sync": "*"
   }
-
 }

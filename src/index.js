@@ -1,6 +1,3 @@
-import readlineSync from 'readline-sync';
+import engine from './engineGame';
 
-export default () => {
-  const userName1 = readlineSync.question('May I have your name? ');
-  return userName1;
-};
+export default engine;

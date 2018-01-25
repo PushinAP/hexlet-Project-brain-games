@@ -1,6 +1,7 @@
-import { askName, askQuestions, results, welcomeAndSpecification } from '../engineGame';
+import { cons } from 'hexlet-pairs';
+import engine from '..';
 
-const generateRandomOperation = () => {
+const generateRandomOperations = () => {
   const arr = ['-', '+', '*'];
 
   const random = Math.floor(Math.random() * arr.length);
@@ -8,7 +9,7 @@ const generateRandomOperation = () => {
   return arr[random];
 };
 
-const generateRandomNumber = () => Math.floor(Math.random() * 10);
+const generateRandomNumber = () => 1 + Math.floor(Math.random() * 10);
 
 const calculation = (operand1, operand2, operation) => {
   if (operation === '-') {
@@ -18,36 +19,19 @@ const calculation = (operand1, operand2, operation) => {
   }
   return operand1 * operand2;
 };
-
-const logicGame = (acc) => {
-  if (acc < 1) {
-    return 'Congratulations';
-  }
-  const number1 = generateRandomNumber();
-
-  const number2 = generateRandomNumber();
-
-  const operation = generateRandomOperation();
-
-  const mathOperation = `${number1}${operation}${number2}`;
-
-  const answerUser = askQuestions(mathOperation);
-
-  const correctAnswer = calculation(number1, number2, operation);
-
-  if (Number(answerUser) === correctAnswer) {
-    results('Correct!');
-    return logicGame(acc - 1);
-  }
-  results(`${answerUser} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
-  return "Let's try again";
-};
-
-
 export default () => {
-  welcomeAndSpecification('What is the result of the expression?');
+  const specification = 'Answer "yes" if number even otherwise answer "no".';
+  const logicGame = () => {
+    const number1 = generateRandomNumber();
 
-  const userName = askName();
+    const number2 = generateRandomNumber();
 
-  return results(`${logicGame(3)}, ${userName}!`);
+    const operation = generateRandomOperations();
+
+    const expression = `${number1}${operation}${number2}`;
+
+    return cons(expression, String(calculation(number1, number2, operation)));
+  };
+
+  return engine(specification, logicGame);
 };
