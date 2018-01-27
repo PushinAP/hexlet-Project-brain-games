@@ -5,7 +5,7 @@ import engineGame from '..';
 export default () => {
   const specification = 'Find the greatest common divisor of given numbers.';
 
-  const logicGame = () => {
+  const rulesGame = () => {
     const number1 = generateRandomNumber(1, 100);
 
     const number2 = generateRandomNumber(1, 100);
@@ -15,5 +15,5 @@ export default () => {
     return cons(numbers, String(findGcd(number1, number2)));
   };
 
-  return engineGame(specification, logicGame);
+  return engineGame(specification, rulesGame);
 };

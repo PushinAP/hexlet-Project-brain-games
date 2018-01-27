@@ -6,7 +6,7 @@ import engine from '..';
 export default () => {
   const specification = 'Answer "yes" if number even otherwise answer "no".';
 
-  const logicGame = () => {
+  const rulesGame = () => {
     const number1 = generateRandomNumber(1, 10);
 
     const number2 = generateRandomNumber(1, 10);
@@ -18,5 +18,5 @@ export default () => {
     return cons(expression, String(calculation(number1, number2, operation)));
   };
 
-  return engine(specification, logicGame);
+  return engine(specification, rulesGame);
 };
