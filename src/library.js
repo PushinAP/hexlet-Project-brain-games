@@ -1,6 +1,3 @@
-import progression from "./games/progression";
-
-
 export const generateRandomOperations = () => {
   const arr = ['-', '+', '*'];
 
@@ -62,4 +59,13 @@ export const Progression = (allNumber) => {
   };
 
   return iter([], 1);
+};
+
+export const isPrime = (number) => {
+  for (let i = 2; i <= number / 2; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
