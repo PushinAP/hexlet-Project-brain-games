@@ -1,3 +1,5 @@
+import progression from "./games/progression";
+
 
 export const generateRandomOperations = () => {
   const arr = ['-', '+', '*'];
@@ -43,4 +45,21 @@ export const balance = (number) => {
   arrNumber[indexMax] = maxNumber - 1;
 
   return balance(Number(arrNumber.join('')));
+};
+
+export const Progression = (allNumber) => {
+  const step = generateRandomNumber(1, 7);
+
+  const numberStart = generateRandomNumber(1, 150);
+
+  const iter = (arr, acc) => {
+    if (acc === allNumber + 1) {
+      return arr;
+    }
+    arr.push((acc * step) + numberStart);
+
+    return iter(arr, acc + 1);
+  };
+
+  return iter([], 1);
 };
